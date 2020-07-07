@@ -1,0 +1,27 @@
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+import { User } from '../models/Users';
+
+ 
+@Injectable({
+  providedIn: 'root'
+})
+
+export class LoginService {
+
+  constructor(private http: HttpClient) { }
+
+  login(username:string, password:string): Observable<User>{
+    const body = JSON.stringify({
+      username: username,
+      password: password
+    });
+    return this.http.post<User>(
+      "http://localhost:8080/user/login", 
+      body, 
+      {headers: new HttpHeaders({'Content-Type':  'application/json'})}
+    )
+  }
+}

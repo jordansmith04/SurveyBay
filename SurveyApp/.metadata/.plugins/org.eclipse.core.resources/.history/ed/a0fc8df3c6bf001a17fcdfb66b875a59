@@ -1,0 +1,5 @@
+package com.jordan.repository;
+
+public interface SurveyReponseRepository {
+
+}

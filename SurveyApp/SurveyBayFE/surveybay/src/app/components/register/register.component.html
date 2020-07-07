@@ -1,0 +1,20 @@
+<div class="panel">
+    <div class="panel-heading"><h3 class="panel-title">New Acount Registration</h3></div>
+  <form class="container" (ngSubmit)="newRegister()" [formGroup]="registrationFG">
+      <div class="form-group">
+        <label for="username">Enter a username: </label>
+        <input formControlName="username" type="text" class="form-control" id="username" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Enter a password: </label>
+        <textarea formControlName="password" class="form-control" id="password" required></textarea>
+      </div>  
+      <div class="form-group">
+        <label for="email">Enter your email: </label>
+        <textarea formControlName="email" class="form-control" id="email" required></textarea>
+      </div>  
+      <button type="submit" [disabled]="!registrationFG.valid"  class="btn btn-primary">Submit</button>
+      <div *ngIf="message" id="submit-success" class="alert alert-success">You have succesfully registered. Redirecting you to the homepage.</div> 
+      <div *ngIf="errorMessage" id="submit-failed" class="alert alert-danger">Registration failed.</div> 
+    </form>
+  </div>

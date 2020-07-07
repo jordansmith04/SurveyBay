@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg nav-link-white nav">
+    <a routerLink="/home"><img style="height: 4rem;"src="./assets/img/bt logo header.png" (click)="setClicked('/home')"></a>        
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" attr.aria-expanded="false" aria-label="Toggle navigation" id="homenav">
+        <span class="navbar-toggler-icon"></span>
+      </button>        
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" *ngIf="cRole=='coordinator'" [ngClass]="{'active': clicked=='/closedsurvey'}">
+          <a class="nav-link" (click)="setClicked('/closedsurvey')" routerLink="/closedsurvey" id="closednav"><b>Closed Surveys</b></a>
+        </li>
+        <li class="nav-item" *ngIf="cRole=='coordinator'" [ngClass]="{'active': clicked=='/opensurvey'}">
+          <a class="nav-link" (click)="setClicked('/opensurvey')" routerLink="/opensurvey" id="opennav"><b>Open Surveys</b></a>
+        </li>
+        <li class="nav-item" *ngIf="cRole=='coordinator'" [ngClass]="{'active': clicked=='/results'}">
+            <a class="nav-link" (click)="setClicked('/results')" routerLink="/results" id="resultsnav"><b>Results</b></a>
+          </li>
+        <li class="nav-item" *ngIf='cRole' [ngClass]="{'active': clicked=='/newsurvey'}">
+          <a class="nav-link" (click)="setClicked('/newsurvey')" routerLink="/newsurvey" id="newsurvey"><b>New Survey</b></a>
+        </li>
+        <li class="nav-item" *ngIf='cRole'>
+          <a class="nav-link" style="cursor:pointer;"(click)="logout()" id="logoutnav"><b>Logout</b></a>
+        </li>
+      </ul>
+    </div>
+  </nav>

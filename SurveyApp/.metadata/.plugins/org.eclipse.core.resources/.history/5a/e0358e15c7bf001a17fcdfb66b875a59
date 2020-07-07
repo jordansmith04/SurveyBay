@@ -1,0 +1,9 @@
+package com.jordan.repository;
+
+import org.springframework.stereotype.Repository;
+
+@Repository("UsersRepository")
+public interface UsersRepository {
+
+	
+}

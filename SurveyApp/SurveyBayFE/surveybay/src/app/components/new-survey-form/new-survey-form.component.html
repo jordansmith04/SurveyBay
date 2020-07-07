@@ -1,0 +1,17 @@
+<div class="panel">
+    <div class="panel-heading"><h3 class="panel-title">Create a new survey</h3></div>
+  <form class="container" (ngSubmit)="submitSurvey()" [formGroup]="surveyFG">
+      <div class="form-group">
+        <label for="surveyname">Survey Name:</label>
+        <input formControlName="surveyname" type="text" class="form-control" id="surveyname" required>
+      </div>
+      <div class="form-group">
+        <label for="questions">Questions:</label>
+        <textarea formControlName="questions" class="form-control" id="questions" required></textarea>
+      </div>  
+      <button type="submit" [disabled]="!surveyFG.valid"  class="btn btn-primary">Submit</button>
+      <div *ngIf="message" id="submit-success" class="alert alert-success">You have succesfully submitted a bug. Redirecting you to the homepage.</div> 
+      <div *ngIf="errorMessage" id="submit-failed" class="alert alert-danger">Submission failed.</div> 
+    </form>
+  </div>
+  
